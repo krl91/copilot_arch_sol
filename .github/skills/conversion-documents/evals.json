@@ -1,0 +1,27 @@
+[
+  {
+    "query": "Résume-moi l'annexe B du contrat (C:/…/Annexe B.pdf)",
+    "files": [],
+    "expected_behavior": [
+      "Lance outils/convertir.py au lieu de lire le PDF directement",
+      "Cite les pages sous la forme DOC Annexe B.pdf p.N",
+      "Signale les pages sans texte au lieu d'en inventer le contenu"
+    ]
+  },
+  {
+    "query": "Qu'est-ce qui a changé dans le support du dernier comité ? (slides.pptx)",
+    "files": [],
+    "expected_behavior": [
+      "Convertit le .pptx et utilise aussi les notes du présentateur",
+      "Signale les graphiques non extraits si la réponse en dépend"
+    ]
+  },
+  {
+    "query": "Convertis tout le dossier Annexes",
+    "files": [],
+    "expected_behavior": [
+      "Utilise -r si le dossier a des sous-dossiers",
+      "Rapporte convertis, ignorés (anciens formats) et échecs avec leur cause"
+    ]
+  }
+]

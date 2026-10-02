@@ -1,0 +1,28 @@
+[
+  {
+    "query": "Adapte <URL page CESAM projet A> pour le projet B",
+    "files": [],
+    "expected_behavior": [
+      "Produit le tableau d'adaptation avant toute rédaction",
+      "Signale chaque élément propre au projet A (client, volumes, interfaces)",
+      "Toute valeur reprise est re-sourcée pour B ou marquée [OPEN]"
+    ]
+  },
+  {
+    "query": "Nouvelle page CESAM sur la mise à jour firmware du projet B",
+    "files": ["1 Projects/B/Topics/<firmware>.md", "1 Projects/B/decisions.md"],
+    "expected_behavior": [
+      "Suit le plan de modele-page.md",
+      "Inclut au moins un diagramme Mermaid de scénario opérationnel",
+      "Les sections sans source contiennent [OPEN] et une question"
+    ]
+  },
+  {
+    "query": "Publie la page",
+    "files": [],
+    "expected_behavior": [
+      "Refuse sans rapport du verificateur et OK explicite",
+      "Remplace ## Sources par ## References à la publication"
+    ]
+  }
+]

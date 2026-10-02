@@ -1,0 +1,27 @@
+[
+  {
+    "query": "Mets à jour le vault avec cette réunion",
+    "files": ["<réunion qui change une valeur déjà présente dans une note Topic>"],
+    "expected_behavior": [
+      "Classe la valeur modifiée en ⚠️ Conflict avec l'ancienne et la nouvelle source datées",
+      "N'écrit rien avant l'accord",
+      "Après accord, barre l'ancien fait avec 'superseded <date> by [Sx]' sans le supprimer"
+    ]
+  },
+  {
+    "query": "Mets à jour le vault avec cet email du client",
+    "files": ["0 Inbox/<email copié>.md"],
+    "expected_behavior": [
+      "Signale qu'un email a moins d'autorité qu'une spec validée et propose une question [OPEN] si conflit",
+      "Ajoute la décision éventuelle dans decisions.md avec date et source"
+    ]
+  },
+  {
+    "query": "Mets à jour le vault avec ce document converti",
+    "files": ["0 Inbox/Converted/<spec convertie>.md"],
+    "expected_behavior": [
+      "Cite le document sous la forme DOC <fichier> (§) (date)",
+      "Liste les pages Confluence impactées dans '## Docs to update' du hub projet"
+    ]
+  }
+]

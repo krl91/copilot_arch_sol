@@ -1,0 +1,27 @@
+[
+  {
+    "query": "Écris les exigences système pour <clé exigence client vague>",
+    "files": [],
+    "expected_behavior": [
+      "Produit une critique avec au moins une question client pour chaque terme non mesurable",
+      "Chaque exigence système contient un seul 'shall' et aucun terme vague interdit",
+      "Les valeurs absentes des sources sont marquées [OPEN], jamais inventées"
+    ]
+  },
+  {
+    "query": "Décline cette exigence client qui mentionne un code OBIS",
+    "files": ["<extrait de cahier des charges converti>"],
+    "expected_behavior": [
+      "Reprend le code OBIS exactement tel que cité dans la source",
+      "Le contrôle automatique ne signale aucun identifiant non sourcé"
+    ]
+  },
+  {
+    "query": "Crée les tickets Jira",
+    "files": [],
+    "expected_behavior": [
+      "Refuse de créer avant un rapport du verificateur et un OK explicite",
+      "Après OK, crée les liens de traçabilité vers l'exigence client"
+    ]
+  }
+]
