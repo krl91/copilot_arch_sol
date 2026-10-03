@@ -125,6 +125,8 @@ def main():
     haystack = norm(" ".join(sources.values()))
     unsourced = []
     for n, l in content:
+        if re.match(r"^\s*[-*]\s*\[[ xX]\]", l):
+            continue  # case à cocher = tâche personnelle, pas une affirmation à sourcer
         for kind, rx in SENSITIVE.items():
             for m in rx.finditer(l):
                 tok = m.group(0)

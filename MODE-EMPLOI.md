@@ -215,7 +215,10 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
    **mises à jour à reporter dans l'Excel**, actions, arbitrages, tickets Jira proposés.
 5. Enchaînement `mise-a-jour-vault` : tableau des faits nouveaux / confirmés / **en conflit** → tu valides.
 6. **Excel Copilot** : colle la liste « Updates to apply » (prompt dans `copilot-365/`) → vérifie → applique.
-7. `/journal` : « CR réunion projet X, 45 min sans, 15 min avec, 2 requêtes ».
+7. **Diffusion** : `/reunion` propose la version à envoyer (sans contrôle de compréhension, notes
+   personnelles ni marqueurs de sources) → envoi **sous 24 h** aux participants **et aux absents** →
+   `minutes_status: sent`.
+8. `/journal` : « CR réunion projet X, 45 min sans, 15 min avec, 2 requêtes ».
 
 ### Scénario B – Workshop client (anglais)
 Comme A avec `meeting_type: customer-workshop`. En plus :
@@ -310,7 +313,7 @@ tâches surprises, erreurs attrapées par la vérification, 3 actions, 2 questio
 **Skills** (`skills/`) — chacun : `SKILL.md` (déroulé à cocher) + fichiers de référence + `evals.json` (3 scénarios de test)
 | Skill | Références | Entrée |
 |---|---|---|
-| `compte-rendu-reunion` | `interne.md`, `workshop-client.md`, `handover.md` (formats de sortie) | `/reunion` |
+| `compte-rendu-reunion` | `regles-compte-rendu.md` (structure, style, diffusion), `interne.md`, `workshop-client.md`, `handover.md` (formats de sortie) | `/reunion` |
 | `mise-a-jour-vault` | — | `/maj-vault`, après `/reunion` |
 | `exigence-systeme` | `regles-redaction.md` (règles INCOSE), `exemples.md` | `/exigence` |
 | `redaction-page-cesam` | `modele-page.md` (plan CESAM), `diagrammes-drawio.md` (Mermaid, draw.io, export) | `/page-cesam` |

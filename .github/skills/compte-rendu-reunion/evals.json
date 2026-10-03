@@ -1,31 +1,42 @@
 [
   {
     "query": "Traite cette réunion (note type internal avec récap Teams, transcription et mes notes)",
-    "files": ["1 Projects/<P>/Meetings/<réunion interne réelle>.md"],
+    "files": [
+      "1 Projects/<P>/Meetings/<réunion interne réelle>.md"
+    ],
     "expected_behavior": [
       "Produit un tableau de contrôle de compréhension qui signale au moins un écart entre mes notes et la transcription quand il en existe",
       "Chaque action a un responsable, une date AAAA-MM-JJ et un critère d'achèvement, ou est marquée [OPEN]",
       "Liste les mises à jour à reporter dans le fichier Excel de suivi avec les en-têtes réels",
-      "Ne crée aucun ticket Jira sans accord"
+      "Ne crée aucun ticket Jira sans accord",
+      "Reprend la revue des actions de la réunion précédente (previous_meeting) avec leur statut",
+      "Propose une version à diffuser sans contrôle de compréhension, notes personnelles ni marqueurs [Sx], destinataires = participants + absents",
+      "Chaque action a un seul responsable nommé, jamais 'team' ou 'all'"
     ]
   },
   {
     "query": "Traite ce workshop client",
-    "files": ["1 Projects/<P>/Meetings/<workshop client réel>.md"],
+    "files": [
+      "1 Projects/<P>/Meetings/<workshop client réel>.md"
+    ],
     "expected_behavior": [
       "Cite mot pour mot les exigences exprimées par le client",
       "Isole les engagements pris par notre côté et les changements de périmètre potentiels",
       "Rédige un email 'minutes for confirmation' en anglais sans engagement absent des sources",
-      "Classe l'email comme livrable N2 et propose la vérification"
+      "Classe l'email comme livrable N2 et propose la vérification",
+      "Chaque action a un responsable (nous / client) et une échéance ; sinon 'TBD [OPEN]' repris dans l'email de confirmation"
     ]
   },
   {
     "query": "Traite ce handover que je reçois",
-    "files": ["1 Projects/<P>/Meetings/<handover réel>.md"],
+    "files": [
+      "1 Projects/<P>/Meetings/<handover réel>.md"
+    ],
     "expected_behavior": [
       "Remplit la checklist de complétude avec ✅/⚠️/❌",
       "Produit des questions en anglais pour combler chaque ⚠️ et ❌",
-      "N'attribue aucune décision sans formulation explicite dans la source"
+      "N'attribue aucune décision sans formulation explicite dans la source",
+      "Chaque action de passation a un responsable et une échéance, ou 'TBD [OPEN]' sans invention"
     ]
   }
 ]
