@@ -26,7 +26,7 @@ Règles communes : [regles-compte-rendu.md](regles-compte-rendu.md). Format selo
 - [ ] 6. Traceability : chaque ID → formulation exacte → [Sx]
 - [ ] 7. verifier_compte_rendu.py : 0 bloquant
 - [ ] 8. Tickets Jira et email de confirmation proposés (N2, non envoyés)
-- [ ] 9. status: processed, puis skill mise-a-jour-vault, puis /suivi proposé
+- [ ] 9. status: processed, mise-a-jour-vault proposé ; après « OK » : vault + registre des actions (script)
 ```
 
 1. **Notes** : si les working notes n'existent pas, les créer depuis `Meeting working notes.md` et y déplacer
@@ -52,9 +52,17 @@ Règles communes : [regles-compte-rendu.md](regles-compte-rendu.md). Format selo
    jusqu'à 0 bloquant (contrôle aussi la convention de sources des working notes).
 8. **Livrables N2** : tickets Jira proposés ; workshop client → brouillon d'email dans `Draft email`.
    Vérification par `verificateur` avant tout envoi ou création.
-9. Mettre `status: processed`, enchaîner sur `mise-a-jour-vault` (sources = working notes), proposer `/suivi`
-   pour mettre à jour le registre des actions du projet, terminer par les actions de l'utilisateur, le rappel
+9. Mettre `status: processed`, enchaîner sur `mise-a-jour-vault` (sources = working notes) et présenter ses
+   propositions **dans la même réponse**. Après l'accord de l'utilisateur (un seul message « OK ») : appliquer
+   les mises à jour du vault **et** exécuter `{{PYTHON_CMD}} outils/actions_projet.py "1 Projects/<P>" --ecrire`
+   (registre des actions, sans requête supplémentaire). Terminer par les actions de l'utilisateur, le rappel
    d'envoi sous 24 h (participants + absents) et une ligne de journal.
+
+## Économie
+- Tout faire en **une réponse** (étapes 1 à 9), puis une seule réponse après « OK ». Pas d'aller-retour.
+- Réunion interne = N1 : contrôle par script, **pas** de sous-agent vérificateur. Vérificateur seulement pour
+  l'email client et les tickets Jira (N2).
+- Lire la transcription une fois ; ne pas la recopier dans la réponse ; citer seulement les extraits utiles.
 
 ## Règles
 - La note Meeting est le livrable : elle peut être envoyée ou copiée telle quelle. Rien d'interne n'y entre.

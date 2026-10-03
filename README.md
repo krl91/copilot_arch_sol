@@ -1,13 +1,29 @@
 # Kit Copilot – Architecte solution smart metering
 
-Kit pour travailler avec **GitHub Copilot (VS Code) + MCP Jira/Xray/Confluence**,
-**Copilot 365** et un **second cerveau Obsidian (PARA)**, avec une **chaîne de validation
-anti-hallucination**, des **convertisseurs Word / Excel / PowerPoint / PDF → markdown**, conçu selon les bonnes pratiques d'Anthropic et de la documentation VS Code (voir section 12 du mode d'emploi).
+Kit pour travailler avec **GitHub Copilot (VS Code) + MCP Jira/Xray/Confluence**, **Copilot 365** et un
+**second cerveau Obsidian (PARA)** : comptes rendus professionnels, suivi de projet, exigences, pages CESAM,
+avec une **chaîne de validation anti-hallucination** et des **convertisseurs Word / Excel / PowerPoint / PDF**.
 
-👉 **Tout est expliqué dans [MODE-EMPLOI.md](MODE-EMPLOI.md)** : installation, configuration,
-usage quotidien, rôle de chaque fichier, dépannage.
-👉 **Les deux workflows clés pas à pas dans [WORKFLOWS.md](WORKFLOWS.md)** : de la réunion au compte rendu
-professionnel, et le suivi de projet (actions, planning, avancement).
+## Le quotidien en 1 minute
+
+**Après une réunion — 2 requêtes**
+1. Pendant : transcription Teams activée, tes notes dans la note *working notes*.
+2. Après : colle le récap Copilot Teams et la transcription dans les *working notes* (0 crédit GitHub).
+3. `/reunion` → notes mises au propre, contrôles de compréhension et de cohérence, compte rendu diffusable,
+   actions avec responsable et échéance (**1 requête**).
+4. Relis, réponds « OK » → vault et registre des actions mis à jour (**1 requête**).
+5. Envoie la note Meeting sous 24 h aux participants et aux absents.
+
+**Suivi de projet — souvent gratuit**
+- Actions en retard, de la semaine, à confirmer : `python outils/actions_projet.py "1 Projects/<P>"` (0 crédit).
+- Jalons et planning : `/suivi <P>` une fois par semaine · état du projet : `/point-projet <P>` ·
+  reporting : `/rapport-avancement <P>`.
+
+**Économie** : une commande complète plutôt qu'une conversation · un nouveau chat par sujet · scripts pour
+calculer et contrôler · Copilot 365 pour capter · vérification seulement pour ce qui sort.
+
+👉 Pas à pas et coût de chaque étape : **[WORKFLOWS.md](WORKFLOWS.md)** ·
+installation, configuration et référence de chaque fichier : **[MODE-EMPLOI.md](MODE-EMPLOI.md)**.
 
 ## Démarrage en 6 étapes
 1. Sauvegarde ton vault.
@@ -17,15 +33,16 @@ professionnel, et le suivi de projet (actions, planning, avancement).
 5. Chat Copilot → agent **kit-setup** → `Installe le kit`.
 6. Après la prochaine réunion : `/reunion`.
 
-## Commandes principales
+## Commandes
+
 | Commande | Pour | Coût |
 |---|---|---|
-| `/reunion` | Compte rendu + contrôle de compréhension + vault | Premium |
-| `/recherche` | Info à jour, sourcée, capitalisée | Premium |
-| `/exigence` | Exigence client → exigences système (vérifiées) | Premium |
-| `/page-cesam` | Page Confluence CESAM (vérifiée) | Premium |
-| `/revue-couverture` | Revue spec / plan de test (vérifiée) | Premium |
-| `/verifier` | Vérification indépendante d'un brouillon | Vérificateur |
-| `/suivi` · `/point-projet` · `/rapport-avancement` | Registre des actions et planning · où en est le projet · rapport d'avancement vérifié | Premium |
-| `/challenge` · `/teach-back` | Mettre à l'épreuve une décision · vérifier sa compréhension | Premium |
-| `/cadrer-demande` · `/convertir` · `/email` · `/journal` | Cadrage, conversion, email, mesure | Gratuit |
+| `/reunion` | Compte rendu professionnel + vault + registre des actions | 2 requêtes (avec « OK ») |
+| `/suivi` · `/point-projet` · `/rapport-avancement` | Jalons et planning · état du projet · rapport vérifié | 1 · 1 · 2 |
+| `/recherche` | Information à jour, sourcée, capitalisée | 1-2 |
+| `/exigence` · `/page-cesam` · `/revue-couverture` | Livrables vérifiés (exigences, page Confluence, revue) | 2-3 |
+| `/verifier` | Vérification indépendante d'un brouillon | 1 |
+| `/challenge` · `/teach-back` | Mettre à l'épreuve une décision · vérifier sa compréhension | selon l'échange |
+| `/cadrer-demande` · `/convertir` · `/email` · `/journal` | Cadrage, conversion, email, mesure | gratuit |
+
+Les coûts sont indicatifs (modèle rédacteur ~1x) ; le coût réel se mesure à l'étalonnage (kit-setup, étape 4).

@@ -10,6 +10,8 @@ agents: ['verificateur']
 Note de travail : `1 Projects/<P>/Project tracker.md` (modèle `Project tracker`). Le fichier Excel de l'équipe reste
 la référence officielle ; le tracker est la vue de travail, rapprochée régulièrement.
 Le calcul (consolidation, retards, échéances) est fait **par le script**, jamais à la main.
+Économie : si l'utilisateur veut seulement voir ou écrire le registre des actions, lui rappeler qu'il peut lancer
+le script lui-même dans le terminal (0 crédit). Tout faire en une réponse ; une seule réponse après « OK ».
 
 ## « mets à jour le suivi <P> » (/suivi)
 ```

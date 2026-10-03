@@ -200,7 +200,7 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
 | Matin (5 min) | Note `Daily note` (top 3) + tri des emails → faits importants dans `0 Inbox/` | Obsidian + Outlook Copilot | 0 |
 | Avant une réunion (5 min) | Note `Meeting`, section `Prep` (objectif, questions, engagements à ne pas prendre) | Obsidian | 0 |
 | Avant réunion interne | Mes tâches en retard / à échéance | Excel Copilot | 0 |
-| Après chaque réunion | `/reunion` puis `/suivi <projet>` | VS Code | ~2-4 |
+| Après chaque réunion | `/reunion` puis « OK » | VS Code | 2 requêtes |
 | Tâche surprise | `/cadrer-demande` → `/recherche` + Copilot 365 | VS Code + 365 | ~1-2 |
 | Document reçu | `/convertir` | VS Code | 0 (gratuit) |
 | Rédaction | `/exigence`, `/page-cesam`, `/revue-couverture` → Vérifier | VS Code | ~3-6 par livrable |
@@ -235,7 +235,8 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
 7. Enchaînement `mise-a-jour-vault` : faits nouveaux / confirmés / **en conflit** → tu valides.
 8. **Excel Copilot** : colle la liste « Updates to apply » (prompt dans `copilot-365/`) → vérifie → applique.
 9. **Diffusion** : envoie la note Meeting **sous 24 h** aux participants **et aux absents** → `minutes_status: sent`.
-10. `/suivi <projet>` : le registre des actions du projet est mis à jour (voir [WORKFLOWS.md](WORKFLOWS.md)).
+10. Ta réponse « OK » applique les mises à jour du vault **et** met à jour le registre des actions du projet
+    (script, sans requête supplémentaire). `/suivi` sert seulement pour les jalons et le planning.
 11. `/journal` : « CR réunion projet X, 45 min sans, 15 min avec, 2 requêtes ».
 
 ### Scénario B – Workshop client (anglais)
@@ -462,6 +463,18 @@ Ou, sans taper de commande : `/convertir` dans le chat.
   3. Copilot 365 d'abord pour emails, SharePoint, Teams, Excel.
   4. Modèle **expert** : choix manuel, rare, pour un vrai arbitrage.
   5. La vérification N2 coûte ~1 requête : c'est le meilleur investissement du kit.
+  6. Scripts dans le terminal pour tout calcul ou contrôle (actions, conversion, sources) : 0 crédit.
+  7. Transcription complète seulement pour les réunions critiques : c'est le principal poste de tokens.
+
+**Coût par workflow** (détail et niveaux léger / standard / critique : [WORKFLOWS.md](WORKFLOWS.md#3-économiser-crédits-et-tokens))
+| Workflow | Coût indicatif |
+|---|---|
+| Réunion standard (`/reunion` + « OK ») | 2 requêtes |
+| Workshop client (avec vérification de l'email) | 3 requêtes |
+| Réunion légère (récap Teams + actions à la main) | 0 |
+| Registre des actions (script) | 0 |
+| Suivi hebdo d'un projet (`/suivi`) | 1 requête |
+| Exigences ou page CESAM vérifiées | 2-3 requêtes |
 
 ---
 
