@@ -30,12 +30,13 @@ workshops client, handovers. Il sert d'exemple à des équipes de niveaux hété
 | note Topic | État actuel d'un sujet ; journal des décisions = `decisions.md` |
 
 ## Vault (PARA)
-`0 Inbox/` captures · `1 Projects/<P>/` (hub `_<P>.md`, `Meetings/`, `Topics/`, `Decisions/`, `Drafts/`,
-`decisions.md`, `RAID log.md`) · `2 Areas/` responsabilités continues (dont une note par client et `People/`) ·
+`0 Inbox/` captures · `1 Projects/<P>/` (hub `_<P>.md`, `Project tracker.md`, `Meetings/`, `Topics/`, `Decisions/`,
+`Drafts/`, `decisions.md`, `RAID log.md`) · `2 Areas/` responsabilités continues (dont une note par client et `People/`) ·
 `3 Resources/` connaissances réutilisables (`Glossary.md`) · `4 Archives/`.
-Modèles (`obsidian-templates/`) et propriété `type` : Project `project` · Meeting `meeting` · Topic `topic` ·
+Modèles (`obsidian-templates/`) et propriété `type` : Project `project` · Meeting `meeting` (compte rendu
+diffusable) + Meeting working notes `meeting-notes` (privée, jamais diffusée) · Topic `topic` ·
 Decision `decision` (MADR) · RAID log `raid` · Answer `answer` · Person `person` · Customer `customer` ·
-Area `area` · Handover pack `handover` · Weekly review · Daily note · Home.
+Area `area` · Handover pack `handover` · Project tracker `tracker` · Weekly review · Daily note · Home.
 Toujours créer une note à partir de son modèle. Ne jamais déplacer ni renommer un fichier du vault.
 
 ## Convention de sources
@@ -57,7 +58,7 @@ Toujours créer une note à partir de son modèle. Ne jamais déplacer ni renomm
 | Niveau | Pour | Contrôles |
 |---|---|---|
 | N0 | Échanges, cadrage | Marqueurs `[Sx]` / `[ASSUMPTION]` / `[OPEN]` |
-| N1 | Notes du vault | Convention de sources + `outils/verifier_sources.py` |
+| N1 | Notes du vault | Convention de sources + `outils/verifier_sources.py` (réunions : `outils/verifier_compte_rendu.py`) |
 | N2 | Tout livrable | N1 + agent `verificateur` (autre modèle, lecture seule) + OK de l'utilisateur |
 
 ## Écritures

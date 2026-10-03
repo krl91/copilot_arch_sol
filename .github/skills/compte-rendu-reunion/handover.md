@@ -1,23 +1,20 @@
 # Modèle de sortie – handover
 
-Structure, style et diffusion : regles-compte-rendu.md. En tête : **direction** = je reçois / je transmets.
+Format de la note **Meeting** (diffusable, sans marqueur de source ; chaque élément porte un ID tracé dans les working notes). Structure, style et diffusion : regles-compte-rendu.md. En tête : **direction** = je reçois / je transmets.
 
 ## Meeting information
 | Title | Date / time / duration | Location / link | Organizer | Minute-taker |
 |---|---|---|---|---|
 - **Present**: · **Absent / excused**: · **Distribution** (incl. absentees): · **Classification**: · **Version / status**:
 
-## Understanding check (internal — not distributed)
-(tableau de l'étape 4 du SKILL)
-
 ## Summary
 1-3 sentences: purpose and outcome.
 
 ## Decisions
-| # | Decision | Decided by | Rationale (1 line) | Source |
+| ID (D1…) | Decision | Decided by | Rationale (1 line) |
 
 ## Actions
-| ID | Action (verb + deliverable) | Owner (one person) | Side (giver / receiver) | Due (YYYY-MM-DD) | Done when | Source |
+| ID (A1…) | Action (verb + deliverable) | Owner (one person) | Side (giver / receiver) | Due (YYYY-MM-DD) | Done when | Status |
 Owners / due dates to confirm: …
 
 ## Discussion by agenda item
@@ -27,7 +24,7 @@ Owners / due dates to confirm: …
 ## Context & objective
 
 ## Decisions already taken (before this meeting)
-| Decision | Rationale | Source / date |
+| Decision | Rationale | Date |
 
 ## Open points & risks
 | Item | Status | Risk if ignored | Owner |
@@ -44,7 +41,7 @@ milestones · Contacts and escalation · Documentation location
 Questions (si je reçois) ou informations à ajouter (si je transmets), en anglais, prêtes à envoyer.
 
 ## Open questions
-| # | Question | Owner | Due |
+| ID (Q1…) | Question | Owner | Due |
 
 ## Parking lot
 | Topic | Next step | Owner |

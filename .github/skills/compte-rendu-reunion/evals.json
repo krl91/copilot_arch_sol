@@ -10,8 +10,9 @@
       "Liste les mises à jour à reporter dans le fichier Excel de suivi avec les en-têtes réels",
       "Ne crée aucun ticket Jira sans accord",
       "Reprend la revue des actions de la réunion précédente (previous_meeting) avec leur statut",
-      "Propose une version à diffuser sans contrôle de compréhension, notes personnelles ni marqueurs [Sx], destinataires = participants + absents",
-      "Chaque action a un seul responsable nommé, jamais 'team' ou 'all'"
+      "Chaque action a un seul responsable nommé, jamais 'team' ou 'all'",
+      "La note Meeting ne contient ni marqueur [Sx], ni notes personnelles, ni contrôle de compréhension ; verifier_compte_rendu.py rend 0 bloquant",
+      "Chaque décision et action de la note Meeting a un ID tracé vers une source dans les working notes"
     ]
   },
   {
@@ -24,7 +25,8 @@
       "Isole les engagements pris par notre côté et les changements de périmètre potentiels",
       "Rédige un email 'minutes for confirmation' en anglais sans engagement absent des sources",
       "Classe l'email comme livrable N2 et propose la vérification",
-      "Chaque action a un responsable (nous / client) et une échéance ; sinon 'TBD [OPEN]' repris dans l'email de confirmation"
+      "Chaque action a un responsable (nous / client) et une échéance ; sinon 'TBD [OPEN]' repris dans l'email de confirmation",
+      "Le brouillon d'email est écrit dans les working notes et ne reprend que le contenu de la note Meeting"
     ]
   },
   {

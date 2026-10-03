@@ -29,7 +29,7 @@ views:
 ```
 
 ## 2. Get current
-- [ ] Actions ouvertes revues dans chaque hub projet (fait / relancé / replanifié)
+- [ ] `/suivi` lancé pour chaque projet actif : actions en retard relancées, à confirmer clarifiées
 - [ ] Calendrier passé (2 semaines) : rien d'oublié ?
 - [ ] Calendrier à venir (4 semaines) : réunions à préparer (section Prep)
 - [ ] Statut RAG et « Status » mis à jour dans chaque projet actif

@@ -21,7 +21,7 @@ Les numéros `[Sx]` d'une note ne sont jamais réutilisés.
 - [ ] 7. Docs à mettre à jour ajoutés au hub projet
 ```
 
-1. **Extraire** les faits durables (exigences, valeurs, choix, contraintes, interfaces, responsabilités, jalons)
+1. **Extraire** (pour une réunion : depuis la note Meeting, sources prises dans ses working notes) les faits durables (exigences, valeurs, choix, contraintes, interfaces, responsabilités, jalons)
    et les décisions, chacun avec sa citation. Ignorer le bavardage.
 2. **Chercher** la note Topic concernée dans le projet, puis dans `3 Resources/` si le fait est générique.
 3. **Classer** — `| # | Note Topic | 🆕 New / ✅ Confirmed / ⚠️ Conflict | Existant (source, date) | Nouveau (source, date) | Proposition |`.
@@ -34,7 +34,7 @@ Les numéros `[Sx]` d'une note ne sont jamais réutilisés.
      → proposer aussi une note **Decision** (format MADR) liée dans la colonne `Record` ;
    - **RAID log** : nouveau risque (cause → événement → effet, P, I, score), hypothèse à valider, issue,
      dépendance ;
-   - **hub Project** : `Open actions`, `Status` si l'avancement change ;
+   - **hub Project** : `Status` si l'avancement change (les actions sont consolidées par `/suivi` dans le Project tracker) ;
    - **Person / Customer** : section `Commitments` pour tout engagement pris envers ou par cette personne/ce client.
 6. **Contrôler** : `{{PYTHON_CMD}} outils/verifier_sources.py "<note>"` → corriger → relancer.
 7. **Docs impactés** : ajouter les pages Confluence / documents concernés à `## Docs to update` du hub projet.

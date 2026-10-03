@@ -25,6 +25,8 @@ La connaissance générale n'est jamais une preuve. En cas de doute : `UNVERIFIA
 
 1. **Contrôle automatique** : reprendre la sortie de `outils/verifier_sources.py` fournie. Absente →
    vérifier à la main : sources citées/déclarées, dates, citations, clés Jira, codes OBIS, URL, nombres, dates.
+   Compte rendu de réunion : vérifier la note Meeting **et** ses working notes ; chaque ID du compte rendu
+   doit correspondre à sa ligne de `Traceability`, et la note Meeting ne doit contenir aucun élément interne.
 2. **Sources** : rouvrir chaque source (MCP, fichier du vault). Citation introuvable → `UNVERIFIABLE`.
 3. **Affirmations** — tableau `| # | Affirmation | Source | Statut | Problème | Correction proposée |` :
    `SUPPORTED` · `PARTIAL` (l'affirmation va plus loin) · `CONTRADICTED` · `CONFLICTED` (sources contradictoires)

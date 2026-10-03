@@ -1,11 +1,14 @@
 # Règles de compte rendu (tous types de réunion)
 
 ## Structure commune (dans cet ordre)
+Chaque élément (décision D, action A, engagement C, question Q, exigence R, changement de périmètre S)
+porte un ID, tracé vers sa source dans les working notes.
+
 1. **Meeting information** — title · date, time, duration · location / link · organizer · minute-taker ·
    present · absent / excused · distribution (includes absentees) · classification · version / status.
 2. **Summary** — 1 to 3 sentences: purpose and outcome.
 3. **Decisions** — decision · decided by · rationale (1 line) · source.
-4. **Actions** — one owner per action (a person, never "team" or "all") · verb + deliverable · due date
+4. **Actions** — ID (A1…) · one owner per action (a person, never "team" or "all") · verb + deliverable · due date
    YYYY-MM-DD · done when · source. Owner or date not stated → `TBD [OPEN]`, listed under
    « Owners / due dates to confirm ».
 5. **Previous actions review** — each open action of the previous meeting: done / in progress / late /
@@ -26,7 +29,9 @@
 
 ## Diffusion
 - Draft within **2 hours**, send within **24 hours**, to all participants **and absentees**.
-- The **distributed version excludes** `Understanding check`, `## My notes`, `## Transcript` and `[Sx]` markers
-  (internal working material only).
+- **Deux notes** : la note **Meeting** est le compte rendu diffusable tel quel ; la note **working notes**
+  (privée) contient récap Teams, transcription, notes personnelles, contrôle de compréhension, traçabilité,
+  brouillon d'email et sources. Rien d'interne n'entre dans la note Meeting ; `outils/verifier_compte_rendu.py`
+  le contrôle.
 - Workshop client: status `sent` → `confirmed` after customer reply (or after the confirmation deadline).
 - Corrections after sending: new version number, short change note.

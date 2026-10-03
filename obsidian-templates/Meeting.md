@@ -13,51 +13,61 @@ participants: []
 absent: []
 distribution: []          # participants + absents + autres destinataires
 classification: internal  # public | internal | confidential (client)
-previous_meeting:         # [[note de la réunion précédente]] → revue des actions
-language: en
-recording: 
+previous_meeting:         # [[réunion précédente]] → revue des actions
+working_notes: "[[{{title}} (working notes)]]"
 status: raw               # raw → processed (mis à jour par /reunion)
 minutes_status: draft     # draft | sent | confirmed
+version: 1
 tags: [meeting]
 ---
 # {{title}}
 
-## Prep
-<!-- 5 minutes AVANT la réunion. Objectif clair = réunion courte. -->
+> **Compte rendu diffusable** : uniquement des faits, décisions et actions. Aucune note personnelle ni marqueur
+> de source ici. Matériau de travail (récap Teams, transcription, notes, contrôle de compréhension, sources) :
+> [[{{title}} (working notes)]]
+
+## Purpose & agenda
 - **Purpose**:
-- **Desired outcomes** (decisions / information / alignment):
 - **Agenda**:
   1. 
-- **Pre-reads**:
-- **Open actions from previous meeting** (voir `previous_meeting`):
-- **My questions to ask**:
-  - 
-- **Commitments I must NOT make** (scope, dates, cost):
-
-## Teams recap
-<!-- Coller ici le compte rendu Copilot de Teams (modèle adapté au type de réunion) -->
-
-## Transcript
-<!-- Optionnel : la partie utile de la transcription, pour le contrôle de compréhension -->
-
-## My notes
-<!-- Impressions, non-dits, doutes ("pas sûr d'avoir compris X"), signaux faibles -->
 
 ## Summary
-<!-- Généré par /reunion -->
+<!-- 1 à 3 phrases : objet et résultat. Rempli par /reunion. -->
+
+## Decisions
+| ID | Decision | Decided by | Rationale |
+|---|---|---|---|
 
 ## Actions
-<!-- Rempli par /reunion. Chaque action : responsable + échéance + critère d'achèvement.
-     Responsable ou date non dits en réunion : TBD [OPEN], à faire confirmer. -->
-| ID | Action (verb + deliverable) | Owner (one person) | Due | Done when | Status |
+<!-- Un seul responsable (une personne), une échéance, un critère d'achèvement.
+     Responsable ou date non dits : TBD, listé dans « to confirm ». -->
+| ID | Action (verb + deliverable) | Owner | Due | Done when | Status |
 |---|---|---|---|---|---|
 
+## Previous actions review
+| ID | Action | Owner | Status | New due |
+|---|---|---|---|---|
+
+## Discussion by agenda item
+### 1. 
+
+## Open questions
+| ID | Question | Owner | Due |
+|---|---|---|---|
+
+## Parking lot
+| Topic | Next step | Owner |
+|---|---|---|
+
+## Next meeting
+- **Date**:
+- **Objective**:
+
+## References
+
 ## Follow-up
-- [ ] Minutes sent within 24 h to participants **and absentees** (version sans parties internes)
+- [ ] Minutes sent within 24 h to participants and absentees
 - [ ] Minutes confirmed by customer (workshop)
-- [ ] Actions added to the project hub and the Excel tracker
+- [ ] Actions register updated (/suivi) and Excel tracker updated
 - [ ] Vault updated (/maj-vault)
 - [ ] Journal entry (/journal)
-
-## Sources
-<!-- Rempli par /reunion : - [S1] MEETING <note> § Teams recap | Transcript | My notes (YYYY-MM-DD) — "citation exacte" -->

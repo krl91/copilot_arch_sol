@@ -30,8 +30,8 @@ Marqueurs à remplacer : en MAJUSCULES `{{NOM}}`. Ne pas toucher `{{date...}}` n
   répond, sinon `AUCUN`. Puis tester `import pypdf`, `import pdfplumber` (optionnels ; Word, Excel et
   PowerPoint n'ont besoin d'aucune bibliothèque). Bibliothèque manquante : proposer
   `{{PYTHON_CMD}} -m pip install --user <lib>`, exécuter seulement après accord.
-- Demander à l'utilisateur de vérifier : agents `redacteur`, `verificateur`, `challenger`, `coach`,
-  `kit-setup` visibles dans le sélecteur ; commandes `/reunion`, `/verifier`… visibles en tapant `/`.
+- Demander à l'utilisateur de vérifier : agents `redacteur`, `verificateur`, `challenger`, `suivi-projet`,
+  `coach`, `kit-setup` visibles dans le sélecteur ; commandes `/reunion`, `/verifier`… visibles en tapant `/`.
 - **Outils MCP** : lister chaque outil avec son **nom complet** (`serveur/outil`) et son type
   (lecture / écriture / recherche JQL-CQL). Construire :
   - `{{TABLE_OUTILS_MCP}}` : tableau `| Usage | Nom complet | Lecture/Écriture |` ;
@@ -74,6 +74,11 @@ Corriger les noms refusés. Si les boutons de transfert n'apparaissent pas : `/v
 2. L'utilisateur lance `/verifier outils/test-chaine/brouillon-piege.md`.
 3. Comparer à `outils/test-chaine/solution.md` : erreurs 1 à 6 trouvées et verdict FAIL → validé ;
    sinon changer le modèle vérificateur et recommencer. Consigner le score dans le rapport.
+4. Comptes rendus : `{{PYTHON_CMD}} outils/verifier_compte_rendu.py "outils/test-chaine/reunion-ok/2026-09-15 Workshop FW.md"`
+   → 0 bloquant ; même commande sur `outils/test-chaine/reunion-piege/2026-09-16 Steering.md` → 6 bloquants
+   (voir `reunion-piege/solution.md`).
+5. Suivi de projet : `{{PYTHON_CMD}} outils/actions_projet.py "outils/test-chaine/projet-demo" --aujourdhui 2026-10-03`
+   → résultat identique à `outils/test-chaine/projet-demo/solution.md`.
 
 ## 7. Convertisseurs
 Demander un .docx, .xlsx, .pptx et .pdf réels peu sensibles. Exécuter
@@ -87,7 +92,8 @@ Créer `2 Areas/AI Practice/journal-copilot.md` depuis `obsidian-templates/Journ
 Faire vérifier dans Obsidian : plugins natifs **Templates** (dossier `obsidian-templates`), **Bases**,
 **Daily notes** (modèle `Daily note`) activés. Créer `Home.md` à la racine depuis le modèle et vérifier que
 ses vues s'affichent ; si une vue reste vide alors que des notes existent, ajuster son filtre avec l'utilisateur.
-Pour chaque projet actif : proposer hub `Project`, `RAID log.md` et `decisions.md` depuis les modèles.
+Pour chaque projet actif : proposer hub `Project`, `Project tracker.md`, `RAID log.md` et `decisions.md` depuis les
+modèles, puis lancer `{{PYTHON_CMD}} outils/actions_projet.py "1 Projects/<P>"` (aperçu, sans écrire).
 
 ## 9. Excel de suivi
 Demander le chemin. Convertir avec `{{PYTHON_CMD}} outils/xlsx2md.py "<chemin>" --out "outils/test-conversion"`

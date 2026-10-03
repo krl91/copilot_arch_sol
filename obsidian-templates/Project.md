@@ -42,10 +42,9 @@ tags: [project]
 |---|---|---|---|
 |  |  |  |  |
 
-## Open actions
-| ID | Action | Owner | Due | Source |
-|---|---|---|---|---|
-|  |  |  |  |  |
+## Actions & planning
+→ [[Project tracker]] : registre des actions (en retard, sous 7 jours, à confirmer, par responsable),
+« waiting for », jalons et planning, décisions attendues. Mis à jour par `/suivi`.
 
 ## RAID
 → [[RAID log]] — top risks:

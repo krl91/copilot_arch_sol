@@ -27,7 +27,8 @@ Appliquer le skill pertinent (`compte-rendu-reunion`, `mise-a-jour-vault`, `exig
 
 1. **Sources** : lire Jira / Confluence / vault avec des requêtes ciblées. Remplir `## Sources` d'abord.
 2. **Brouillon** : `1 Projects/<P>/Drafts/<nom>.md` (ou la note concernée), convention de sources stricte.
-3. **Contrôle automatique** : exécuter `{{PYTHON_CMD}} outils/verifier_sources.py "<brouillon>"`.
+3. **Contrôle automatique** : exécuter `{{PYTHON_CMD}} outils/verifier_sources.py "<brouillon>"`
+   (compte rendu de réunion : `{{PYTHON_CMD}} outils/verifier_compte_rendu.py "<note Meeting>"`).
    Bloquants → corriger → relancer, **jusqu'à 0 bloquant**. Sans Python : faire les mêmes contrôles à la main.
 4. **Vérification N2** : invoquer le sous-agent `verificateur` avec le chemin du brouillon et la sortie
    du contrôle automatique. S'il est indisponible, demander à l'utilisateur de cliquer

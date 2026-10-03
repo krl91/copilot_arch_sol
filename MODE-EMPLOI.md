@@ -190,6 +190,9 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
 
 ## 6. Utilisation au quotidien
 
+> Les deux workflows clés (réunion → compte rendu professionnel, suivi de projet) sont détaillés pas à pas,
+> avec qui fait quoi, dans **[WORKFLOWS.md](WORKFLOWS.md)**.
+
 ### Routine type
 
 | Moment | Action | Outil | Coût GitHub |
@@ -197,7 +200,7 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
 | Matin (5 min) | Note `Daily note` (top 3) + tri des emails → faits importants dans `0 Inbox/` | Obsidian + Outlook Copilot | 0 |
 | Avant une réunion (5 min) | Note `Meeting`, section `Prep` (objectif, questions, engagements à ne pas prendre) | Obsidian | 0 |
 | Avant réunion interne | Mes tâches en retard / à échéance | Excel Copilot | 0 |
-| Après chaque réunion | `/reunion` | VS Code | ~1-3 |
+| Après chaque réunion | `/reunion` puis `/suivi <projet>` | VS Code | ~2-4 |
 | Tâche surprise | `/cadrer-demande` → `/recherche` + Copilot 365 | VS Code + 365 | ~1-2 |
 | Document reçu | `/convertir` | VS Code | 0 (gratuit) |
 | Rédaction | `/exigence`, `/page-cesam`, `/revue-couverture` → Vérifier | VS Code | ~3-6 par livrable |
@@ -206,24 +209,40 @@ Tout est tracé dans `2 Areas/AI Practice/kit-setup-rapport.md`.
 | Fin de mois | Coach : `audit du vault`, `bilan du mois` | VS Code | 2 |
 
 ### Scénario A – Réunion interne (avec le fichier Excel de suivi)
-1. **Teams** : transcription activée ; après la réunion, récap Copilot avec le modèle *Internal*.
-2. **Obsidian** : nouvelle note dans `1 Projects/<Projet>/Meetings/` → insérer le modèle
-   `Meeting` → `meeting_type: internal`, `project:` → colle le récap dans `## Teams recap`, la
-   transcription utile dans `## Transcript`, tes impressions dans `## My notes`.
-3. **VS Code** : ouvre la note → `/reunion` (laisser vide = fichier ouvert).
-4. Tu obtiens : contrôle de compréhension (ce que tu as noté vs ce qui a été dit), décisions,
-   **mises à jour à reporter dans l'Excel**, actions, arbitrages, tickets Jira proposés.
-5. Enchaînement `mise-a-jour-vault` : tableau des faits nouveaux / confirmés / **en conflit** → tu valides.
-6. **Excel Copilot** : colle la liste « Updates to apply » (prompt dans `copilot-365/`) → vérifie → applique.
-7. **Diffusion** : `/reunion` propose la version à envoyer (sans contrôle de compréhension, notes
-   personnelles ni marqueurs de sources) → envoi **sous 24 h** aux participants **et aux absents** →
-   `minutes_status: sent`.
-8. `/journal` : « CR réunion projet X, 45 min sans, 15 min avec, 2 requêtes ».
+
+**Principe : deux notes liées par réunion.**
+| Note | Contenu | Diffusion |
+|---|---|---|
+| `<titre>` (modèle `Meeting`) | Compte rendu : synthèse, décisions, actions, revue des actions précédentes, discussion, prochaine réunion | **Diffusable telle quelle** |
+| `<titre> (working notes)` (modèle `Meeting working notes`) | Préparation privée, récap Teams, transcription, tes notes, contrôle de compréhension, traçabilité, brouillon d'email, sources | **Jamais diffusée** |
+
+1. **Avant** : nouvelle note dans `1 Projects/<Projet>/Meetings/` → modèle `Meeting` (`meeting_type: internal`,
+   `project:`, objectif et ordre du jour). Clique sur le lien des working notes → modèle `Meeting working notes` →
+   remplis `Prep (private)` : tes questions et les **engagements à ne pas prendre**.
+2. **Teams** : transcription activée ; après la réunion, récap Copilot avec le modèle *Internal*.
+3. **Working notes** : colle le récap dans `Teams recap`, la transcription utile dans `Transcript`, tes impressions
+   dans `My notes`.
+4. **VS Code** : ouvre la note Meeting → `/reunion`.
+5. Tu obtiens :
+   - dans la **note Meeting** : synthèse, décisions, actions (responsable + échéance), **mises à jour à reporter
+     dans l'Excel**, revue des actions précédentes, discussion par point, prochaine réunion — chaque élément
+     avec un ID (D1, A1…) ;
+   - dans les **working notes** : tes notes **mises au propre** (classées par sujet, complétées par le récap et
+     la transcription), contrôle de compréhension, **contrôle de cohérence** avec ce que le projet sait déjà,
+     traçabilité (ID → source), sources.
+6. Contrôle automatique : `verifier_compte_rendu.py` garantit que la note Meeting ne contient **rien d'interne**
+   et que chaque élément est tracé.
+7. Enchaînement `mise-a-jour-vault` : faits nouveaux / confirmés / **en conflit** → tu valides.
+8. **Excel Copilot** : colle la liste « Updates to apply » (prompt dans `copilot-365/`) → vérifie → applique.
+9. **Diffusion** : envoie la note Meeting **sous 24 h** aux participants **et aux absents** → `minutes_status: sent`.
+10. `/suivi <projet>` : le registre des actions du projet est mis à jour (voir [WORKFLOWS.md](WORKFLOWS.md)).
+11. `/journal` : « CR réunion projet X, 45 min sans, 15 min avec, 2 requêtes ».
 
 ### Scénario B – Workshop client (anglais)
 Comme A avec `meeting_type: customer-workshop`. En plus :
 - section **Commitments made by our side** et **Potential scope changes** : à relire en priorité ;
-- **brouillon d'email « minutes for confirmation »** → c'est un livrable **N2** : clique
+- **brouillon d'email « minutes for confirmation »**, écrit dans les working notes à partir de la seule
+  note Meeting → c'est un livrable **N2** : clique
   **🔍 Vérifier les sources** (ou `/verifier`), corrige, puis envoie depuis Outlook.
 
 ### Scénario C – Handover
@@ -292,6 +311,7 @@ tâches surprises, erreurs attrapées par la vérification, 3 actions, 2 questio
 | `redacteur.agent.md` | Livrables sourcés ; appelle le vérificateur en sous-agent ; publie après OK | Lecture, édition, terminal, MCP, sous-agent | Via les commandes `/reunion`, `/exigence`… |
 | `verificateur.agent.md` | Vérification indépendante, verdict PASS / FIX / FAIL + limites | **Lecture seule** | Automatique, bouton ou `/verifier` |
 | `challenger.agent.md` | Avocat du diable et teach-back | Lecture seule | `/challenge`, `/teach-back` |
+| `suivi-projet.agent.md` | Registre des actions, jalons et planning, attentes, rapprochement Excel, relances, rapport d'avancement | Lecture, édition, terminal, MCP lecture, sous-agent | `/suivi`, `/point-projet`, `/rapport-avancement` |
 | `coach.agent.md` | Bilans, audit du vault, fiches équipe, **création de skills** | Lecture, édition | Vendredi, fin de mois |
 
 **Commandes** (`prompts/`)
@@ -305,6 +325,9 @@ tâches surprises, erreurs attrapées par la vérification, 3 actions, 2 questio
 | `/revue-couverture` | redacteur · rédacteur | N2 | Relecture spec / plan de test |
 | `/verifier` | verificateur · vérificateur | — | Vérification manuelle |
 | `/challenge`, `/teach-back` | challenger · rédacteur | N0 | Préparation |
+| `/suivi` | suivi-projet · rédacteur | N1 | Après chaque compte rendu, revue hebdo |
+| `/point-projet` | suivi-projet · rédacteur | N0 | Où en est le projet |
+| `/rapport-avancement` | suivi-projet · rédacteur | N2 | Reporting, comité |
 | `/cadrer-demande` | ask · gratuit | N0 | Tâche surprise |
 | `/email` | agent · gratuit | N0 → N2 si client | Email technique |
 | `/convertir` | agent · gratuit | — | Document reçu |
@@ -331,7 +354,9 @@ consignes en commentaires `<!-- -->` (invisibles en lecture).
 |---|---|---|---|
 | `Home.md` | Note d'accueil (LYT, Nick Milo) | Tableau de bord : projets actifs, réunions à traiter, sujets à vérifier, décisions en attente, Inbox | Racine du vault |
 | `Project.md` | PARA / BASB (résultat + échéance, « intermediate packets ») + fiche projet PMI/PRINCE2 | Hub projet : outcome, périmètre, statut RAG, jalons, parties prenantes, actions, RAID, vues décisions/sujets/réunions, docs, retour d'expérience | `1 Projects/<P>/_<P>.md` |
-| `Meeting.md` | Minutes structurées (awesome-copilot `meeting-minutes`) | Préparation, capture (récap Teams, transcription, notes), synthèse, suivi, sources | `1 Projects/<P>/Meetings/` |
+| `Meeting.md` | Minutes structurées (awesome-copilot `meeting-minutes`, règles de compte rendu) | **Compte rendu diffusable** : objectif, synthèse, décisions, actions, revue des actions précédentes, discussion, prochaine réunion, suivi — lien vers les working notes | `1 Projects/<P>/Meetings/` |
+| `Meeting working notes.md` | Séparation livrable / matériau de travail | **Privée** : préparation (questions, engagements à ne pas prendre), récap Teams, transcription, notes personnelles, **notes mises au propre**, contrôle de compréhension, **contrôle de cohérence projet**, traçabilité, brouillon d'email, sources | `1 Projects/<P>/Meetings/` |
+| `Project tracker.md` | Registre d'actions, Gantt, « waiting for » (GTD) | Registre des actions généré par script, mises à jour hors réunion, attentes, jalons et planning, décisions attendues, historique des rapports | `1 Projects/<P>/Project tracker.md` |
 | `Topic.md` | Notes « evergreen » (état actuel) | Bottom line, faits sourcés, règles, interfaces, décisions, questions, historique des changements | `1 Projects/<P>/Topics/` ou `3 Resources/` |
 | `Decision.md` | **MADR 4.0** (Markdown Architectural Decision Records) | Décision structurante : contexte, critères, options, décision, conséquences, confirmation | `1 Projects/<P>/Decisions/` |
 | `decisions.md` | Journal de décisions | Toutes les décisions, ajout seul, lien vers la note Decision | `1 Projects/<P>/decisions.md` |
@@ -367,9 +392,12 @@ consignes en commentaires `<!-- -->` (invisibles en lecture).
 | `pptx2md.py` | PowerPoint → markdown (une section par slide, notes incluses) | **aucune** |
 | `pdf2md.py` | PDF → markdown (page par page, tableaux en option) | `pypdf` (+ `pdfplumber` option) |
 | `verifier_sources.py` | Contrôle automatique des sources d'un brouillon | **aucune** |
+| `actions_projet.py` | Consolide les actions de toutes les réunions d'un projet : en retard, sous 7 jours, à confirmer, par responsable ; écrit le registre du Project tracker (`--ecrire`) | **aucune** |
+| `verifier_compte_rendu.py` | Contrôle d'un compte rendu : rien d'interne dans la note diffusable, actions avec un responsable et une échéance, chaque élément tracé dans les working notes | **aucune** |
 | `_commun.py` | Fonctions partagées des convertisseurs | — |
 | `test-chaine/brouillon-piege.md` | Brouillon avec 7 erreurs plantées | — |
 | `test-chaine/solution.md` | Les 7 erreurs (ne pas montrer au vérificateur) | — |
+| `test-chaine/reunion-ok/`, `reunion-piege/` | Couple de notes de réunion correct / piégé (6 erreurs) | — |
 
 ---
 

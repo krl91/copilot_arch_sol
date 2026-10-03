@@ -6,6 +6,8 @@ anti-hallucination**, des **convertisseurs Word / Excel / PowerPoint / PDF → m
 
 👉 **Tout est expliqué dans [MODE-EMPLOI.md](MODE-EMPLOI.md)** : installation, configuration,
 usage quotidien, rôle de chaque fichier, dépannage.
+👉 **Les deux workflows clés pas à pas dans [WORKFLOWS.md](WORKFLOWS.md)** : de la réunion au compte rendu
+professionnel, et le suivi de projet (actions, planning, avancement).
 
 ## Démarrage en 6 étapes
 1. Sauvegarde ton vault.
@@ -24,5 +26,6 @@ usage quotidien, rôle de chaque fichier, dépannage.
 | `/page-cesam` | Page Confluence CESAM (vérifiée) | Premium |
 | `/revue-couverture` | Revue spec / plan de test (vérifiée) | Premium |
 | `/verifier` | Vérification indépendante d'un brouillon | Vérificateur |
+| `/suivi` · `/point-projet` · `/rapport-avancement` | Registre des actions et planning · où en est le projet · rapport d'avancement vérifié | Premium |
 | `/challenge` · `/teach-back` | Mettre à l'épreuve une décision · vérifier sa compréhension | Premium |
 | `/cadrer-demande` · `/convertir` · `/email` · `/journal` | Cadrage, conversion, email, mesure | Gratuit |
